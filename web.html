@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Personal Website</title>
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f7fa;
+      color: #333;
+      scroll-behavior: smooth;
+      position: relative;
+    }
+
+    /* Graffiti melt animation */
+    @keyframes melt {
+      0% {
+        transform: scaleY(1) translateY(0);
+        opacity: 0.75;
+      }
+      50% {
+        transform: scaleY(1.1) translateY(10px);
+        opacity: 0.7;
+      }
+      100% {
+        transform: scaleY(1) translateY(0);
+        opacity: 0.75;
+      }
+    }
+
+    .graffiti {
+      position: fixed;
+      top: -230px;
+      height: 150vh;
+      z-index: -1;
+      pointer-events: none;
+      object-fit: contain;
+      filter: saturate(1.2) contrast(1.2);
+      opacity: 0.75;
+    }
+
+    .graffiti-left {
+      left: 50px;
+      width: 250px;
+      transform-origin: top center;
+      animation: melt 6s ease-in-out infinite;
+    }
+
+    .graffiti-right {
+      right: 50px;
+      width: 250px;
+      transform: rotate(-25deg);
+      transform-origin: top center;
+      animation: melt 6s ease-in-out infinite reverse;
+    }
+
+    header {
+      background: #ccc;
+      color: #333;
+      padding: 40px 20px;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .side-photo {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .header-text {
+      text-align: center;
+    }
+
+    .header-text h1 {
+      margin: 0;
+      font-size: 36px;
+    }
+
+    .header-text p {
+      margin: 8px 0 0;
+      font-size: 16px;
+    }
+
+    /* Floating Animation */
+    .float-left {
+      animation: floatUpDown 3s ease-in-out infinite;
+    }
+
+    .float-right {
+      animation: floatUpDownAlt 3s ease-in-out infinite;
+    }
+
+    @keyframes floatUpDown {
+      0%   { transform: translateY(0); }
+      50%  { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    @keyframes floatUpDownAlt {
+      0%   { transform: translateY(-5px); }
+      50%  { transform: translateY(5px); }
+      100% { transform: translateY(-5px); }
+    }
+
+    section {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 0 20px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      color: #4e54c8;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .social-links a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #4e54c8;
+      font-size: 28px;
+      transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+      color: #000;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #ddd;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .header-text h1 {
+        font-size: 28px;
+      }
+
+      .side-photo {
+        width: 80px;
+        height: 80px;
+      }
+
+      .graffiti-left, .graffiti-right {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Graffiti side images -->
+  <img src="graf1.png" alt="Graffiti Left" class="graffiti graffiti-left">
+  <img src="graf2.png" alt="Graffiti Right" class="graffiti graffiti-right">
+
+  <header>
+    <div class="header-content">
+      <img src="left.jpg" alt="Left Photo" class="side-photo float-left">
+      <div class="header-text">
+        <h1>Rene Renette E Aracan</h1>
+        <p>Welcome to my personal website</p>
+      </div>
+      <img src="right.jpg" alt="Right Photo" class="side-photo float-right">
+    </div>
+  </header>
+
+  <section class="fade-section">
+    <h2>About Me</h2>
+    <p>Hey! I’m Rene Renette E Aracan — currently studying at Liceo. I’m really into motorcycles and love going on rides whenever I get the chance. I also mess around with code sometimes, mostly just for fun (or when I’m bored 😅). This site? Honestly, I just made it to try something cool and personal.</p>
+  </section>
+
+  <section class="fade-section">
+    <h2>Skills</h2>
+    <ul>
+      <li>HTML, CSS, JavaScript</li>
+      <li>Python, Lua</li>
+      <li>Mag Lulu Og Mag Beg</li>
+      <li>Mag Relapse</li>
+    </ul>
+  </section>
+
+  <section class="fade-section">
+    <h2>Contact</h2>
+    <p>You can reach me via email: <strong>renearacan0331@gmail.com</strong></p>
+    <div class="social-links">
+      <a href="https://www.instagram.com/your_username/" target="_blank">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.facebook.com/rene.aracan.2025/" target="_blank">
+        <i class="fab fa-facebook"></i>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Rene Renette E Aracan — All rights reserved.
+  </footer>
+
+  <script>
+    // Scroll reveal animation
+    const sections = document.querySelectorAll('.fade-section');
+    function revealOnScroll() {
+      const triggerBottom = window.innerHeight * 0.85;
+      sections.forEach(section => {
+        const top = section.getBoundingClientRect().top;
+        if (top < triggerBottom) {
+          section.classList.add('visible');
+        }
+      });
+    }
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
+
+</body>
+</html>
